@@ -1,0 +1,7 @@
+
+State Machine - |instruction_cache_mem|current_s
+Name current_s.WAITING current_s.READ_DATA_FROM_BUS current_s.READ_MEM current_s.IDLE 
+current_s.IDLE 0 0 0 0 
+current_s.READ_MEM 0 0 1 1 
+current_s.READ_DATA_FROM_BUS 0 1 0 1 
+current_s.WAITING 1 0 0 1 

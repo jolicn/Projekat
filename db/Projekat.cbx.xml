@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Projekat">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Pipeline|IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0" CBX_FILE_NAME="altsyncram_iag1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Pipeline|IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0" CBX_FILE_NAME="altsyncram_jnd1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

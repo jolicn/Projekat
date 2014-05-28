@@ -1,0 +1,1149 @@
+Analysis & Synthesis report for Projekat
+Wed May 28 04:18:17 2014
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |Pipeline|ID_PHASE:ID_faza|ID_EXE:ID_EXE_stanglica|instruction_out
+ 10. State Machine - |Pipeline|IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|current_s
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Registers Added for RAM Pass-Through Logic
+ 14. Registers Packed Into Inferred Megafunctions
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0|altsyncram_iag1:auto_generated
+ 17. Source assignments for IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0|altsyncram_jnd1:auto_generated
+ 18. Parameter Settings for Inferred Entity Instance: IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0
+ 19. Parameter Settings for Inferred Entity Instance: IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "Arbitrary:Arbitrator"
+ 22. Port Connectivity Checks: "MEM_PHASE:MEM_faza"
+ 23. Port Connectivity Checks: "EXE_PHASE:EXE_faza|ALU:ALU_comp|SUB:SUBb"
+ 24. Port Connectivity Checks: "EXE_PHASE:EXE_faza|ALU:ALU_comp|ADD:ADDd"
+ 25. Port Connectivity Checks: "EXE_PHASE:EXE_faza"
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed May 28 04:18:17 2014           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; Projekat                                        ;
+; Top-level Entity Name              ; Pipeline                                        ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 215                                             ;
+;     Total combinational functions  ; 128                                             ;
+;     Dedicated logic registers      ; 114                                             ;
+; Total registers                    ; 114                                             ;
+; Total pins                         ; 102                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 416                                             ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C70F896I8       ;                    ;
+; Top-level entity name                                                      ; Pipeline           ; Projekat           ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; KES/INSTRUCTION.vhd              ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/KES/INSTRUCTION.vhd                    ;         ;
+; KES/Arbitrary.vhd                ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/KES/Arbitrary.vhd                      ;         ;
+; IF_PHASE/IF_PHASE.vhd            ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/IF_PHASE/IF_PHASE.vhd                  ;         ;
+; IF_PHASE/IF_PC.vhd               ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/IF_PHASE/IF_PC.vhd                     ;         ;
+; IF_PHASE/IF_ID.vhd               ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/IF_PHASE/IF_ID.vhd                     ;         ;
+; ID_PHASE/ID_RegFile.vhd          ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/ID_PHASE/ID_RegFile.vhd                ;         ;
+; ID_PHASE/ID_PHASE.vhd            ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/ID_PHASE/ID_PHASE.vhd                  ;         ;
+; ID_PHASE/ID_OPDecode.vhd         ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/ID_PHASE/ID_OPDecode.vhd               ;         ;
+; ID_PHASE/ID_EXE.vhd              ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/ID_PHASE/ID_EXE.vhd                    ;         ;
+; EXE_PHASE/SUB.vhd                ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/EXE_PHASE/SUB.vhd                      ;         ;
+; EXE_PHASE/ImmedOpExtension.vhd   ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/EXE_PHASE/ImmedOpExtension.vhd         ;         ;
+; EXE_PHASE/EXE_PHASE.vhd          ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/EXE_PHASE/EXE_PHASE.vhd                ;         ;
+; EXE_PHASE/CSR.vhd                ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/EXE_PHASE/CSR.vhd                      ;         ;
+; EXE_PHASE/BBLinstr.vhd           ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/EXE_PHASE/BBLinstr.vhd                 ;         ;
+; EXE_PHASE/ALU.vhd                ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/EXE_PHASE/ALU.vhd                      ;         ;
+; EXE_PHASE/ADD.vhd                ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/EXE_PHASE/ADD.vhd                      ;         ;
+; CPU/Package - instr_type.vhd     ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/CPU/Package - instr_type.vhd           ;         ;
+; CPU/CPU.vhd                      ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/CPU/CPU.vhd                            ;         ;
+; EXE_PHASE/EXE_MEM.vhd            ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/EXE_PHASE/EXE_MEM.vhd                  ;         ;
+; MEM_PHASE/MEM_PHASE.vhd          ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/MEM_PHASE/MEM_PHASE.vhd                ;         ;
+; MEM_PHASE/MEM_WB.vhd             ; yes             ; User VHDL File               ; C:/Users/Nikola/Desktop/Projekat/MEM_PHASE/MEM_WB.vhd                   ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_iag1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Nikola/Desktop/Projekat/db/altsyncram_iag1.tdf                 ;         ;
+; db/altsyncram_jnd1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Nikola/Desktop/Projekat/db/altsyncram_jnd1.tdf                 ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 215   ;
+;                                             ;       ;
+; Total combinational functions               ; 128   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 97    ;
+;     -- 3 input functions                    ; 22    ;
+;     -- <=2 input functions                  ; 9     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 128   ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 114   ;
+;     -- Dedicated logic registers            ; 114   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 102   ;
+; Total memory bits                           ; 416   ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; CLK   ;
+; Maximum fan-out                             ; 140   ;
+; Total fan-out                               ; 1191  ;
+; Average fan-out                             ; 3.22  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                             ;
++-----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                  ; Library Name ;
++-----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------+--------------+
+; |Pipeline                                     ; 128 (0)           ; 114 (0)      ; 416         ; 0            ; 0       ; 0         ; 102  ; 0            ; |Pipeline                                                                                                            ; work         ;
+;    |IF_PHASE:IF_faza|                         ; 128 (0)           ; 114 (0)      ; 416         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Pipeline|IF_PHASE:IF_faza                                                                                           ; work         ;
+;       |IF_PC:IF_PC_reg|                       ; 1 (1)             ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Pipeline|IF_PHASE:IF_faza|IF_PC:IF_PC_reg                                                                           ; work         ;
+;       |instruction_cache_mem:instruction_mem| ; 127 (127)         ; 88 (88)      ; 416         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Pipeline|IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem                                                     ; work         ;
+;          |altsyncram:tag_rtl_0|               ; 0 (0)             ; 0 (0)        ; 416         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Pipeline|IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0                                ; work         ;
+;             |altsyncram_jnd1:auto_generated|  ; 0 (0)             ; 0 (0)        ; 416         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Pipeline|IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0|altsyncram_jnd1:auto_generated ; work         ;
++-----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                          ;
++-----------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                  ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++-----------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0|altsyncram_jnd1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 16           ; 26           ; 16           ; 26           ; 416  ; None ;
++-----------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Pipeline|ID_PHASE:ID_faza|ID_EXE:ID_EXE_stanglica|instruction_out                                                                              ;
++---------------------------+------------------------+--------------------------+-------------------------+---------------------------+---------------------------+
+; Name                      ; instruction_out.S~reg0 ; instruction_out.BBL~reg0 ; instruction_out.LS~reg0 ; instruction_out.DP_I~reg0 ; instruction_out.DP_R~reg0 ;
++---------------------------+------------------------+--------------------------+-------------------------+---------------------------+---------------------------+
+; instruction_out.DP_R~reg0 ; 0                      ; 0                        ; 0                       ; 0                         ; 0                         ;
+; instruction_out.DP_I~reg0 ; 0                      ; 0                        ; 0                       ; 1                         ; 1                         ;
+; instruction_out.LS~reg0   ; 0                      ; 0                        ; 1                       ; 0                         ; 1                         ;
+; instruction_out.BBL~reg0  ; 0                      ; 1                        ; 0                       ; 0                         ; 1                         ;
+; instruction_out.S~reg0    ; 1                      ; 0                        ; 0                       ; 0                         ; 1                         ;
++---------------------------+------------------------+--------------------------+-------------------------+---------------------------+---------------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Pipeline|IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|current_s                            ;
++------------------------------+-------------------+------------------------------+--------------------+----------------+
+; Name                         ; current_s.WAITING ; current_s.READ_DATA_FROM_BUS ; current_s.READ_MEM ; current_s.IDLE ;
++------------------------------+-------------------+------------------------------+--------------------+----------------+
+; current_s.IDLE               ; 0                 ; 0                            ; 0                  ; 0              ;
+; current_s.READ_MEM           ; 0                 ; 0                            ; 1                  ; 1              ;
+; current_s.READ_DATA_FROM_BUS ; 0                 ; 1                            ; 0                  ; 1              ;
+; current_s.WAITING            ; 1                 ; 0                            ; 0                  ; 1              ;
++------------------------------+-------------------+------------------------------+--------------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                          ;
++--------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+; Register name                                                      ; Reason for Removal                                                                     ;
++--------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+; IF_PHASE:IF_faza|IF_PC:IF_PC_reg|PCtmp[2]                          ; Merged with IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[2] ;
+; IF_PHASE:IF_faza|IF_PC:IF_PC_reg|PCtmp[3]                          ; Merged with IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[4] ;
+; IF_PHASE:IF_faza|IF_PC:IF_PC_reg|PCtmp[4]                          ; Merged with IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[6] ;
+; IF_PHASE:IF_faza|IF_PC:IF_PC_reg|PCtmp[5]                          ; Merged with IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[8] ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|data~39     ; Lost fanout                                                                            ;
+; ID_PHASE:ID_faza|ID_EXE:ID_EXE_stanglica|instruction_out.DP_R~reg0 ; Lost fanout                                                                            ;
+; ID_PHASE:ID_faza|ID_EXE:ID_EXE_stanglica|instruction_out.DP_I~reg0 ; Lost fanout                                                                            ;
+; ID_PHASE:ID_faza|ID_EXE:ID_EXE_stanglica|instruction_out.LS~reg0   ; Lost fanout                                                                            ;
+; ID_PHASE:ID_faza|ID_EXE:ID_EXE_stanglica|instruction_out.BBL~reg0  ; Lost fanout                                                                            ;
+; ID_PHASE:ID_faza|ID_EXE:ID_EXE_stanglica|instruction_out.S~reg0    ; Lost fanout                                                                            ;
+; Total Number of Removed Registers = 10                             ;                                                                                        ;
++--------------------------------------------------------------------+----------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 114   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 51    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 63    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                                                                                     ;
++-----------------------------------------------------------------------------+------------------------------------------------------------------+
+; Register Name                                                               ; RAM Name                                                         ;
++-----------------------------------------------------------------------------+------------------------------------------------------------------+
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[0]  ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[1]  ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[2]  ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[3]  ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[4]  ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[5]  ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[6]  ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[7]  ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[8]  ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[9]  ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[10] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[11] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[12] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[13] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[14] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[15] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[16] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[17] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[18] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[19] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[20] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[21] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[22] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[23] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[24] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[25] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[26] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[27] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[28] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[29] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[30] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[31] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[32] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[33] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
+; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0_bypass[34] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0 ;
++-----------------------------------------------------------------------------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                                    ;
++------------------------------------------------------+-------------------------------------------------------------------+------+
+; Register Name                                        ; Megafunction                                                      ; Type ;
++------------------------------------------------------+-------------------------------------------------------------------+------+
+; IF_PHASE:IF_faza|IF_ID:IF_ID_stanglica|IRout[29..31] ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|data_rtl_0 ; RAM  ;
++------------------------------------------------------+-------------------------------------------------------------------+------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |Pipeline|IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|mem_wait[3] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Pipeline|ID_PHASE:ID_faza|ID_OPDecode:OPDecode|BBL_flag                     ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; No         ; |Pipeline|IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0|altsyncram_iag1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                   ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                    ;
++---------------------------------+--------------------+------+----------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0|altsyncram_jnd1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                  ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                   ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0 ;
++------------------------------------+----------------------+-------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                              ;
++------------------------------------+----------------------+-------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                           ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                           ;
+; WIDTH_A                            ; 3                    ; Untyped                                                           ;
+; WIDTHAD_A                          ; 6                    ; Untyped                                                           ;
+; NUMWORDS_A                         ; 64                   ; Untyped                                                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                           ;
+; WIDTH_B                            ; 3                    ; Untyped                                                           ;
+; WIDTHAD_B                          ; 6                    ; Untyped                                                           ;
+; NUMWORDS_B                         ; 64                   ; Untyped                                                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                           ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                           ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                           ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                           ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                                           ;
+; CBXI_PARAMETER                     ; altsyncram_iag1      ; Untyped                                                           ;
++------------------------------------+----------------------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0 ;
++------------------------------------+----------------------+------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                             ;
++------------------------------------+----------------------+------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                          ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                     ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                   ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                          ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                          ;
+; WIDTH_A                            ; 26                   ; Untyped                                                          ;
+; WIDTHAD_A                          ; 4                    ; Untyped                                                          ;
+; NUMWORDS_A                         ; 16                   ; Untyped                                                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                          ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                          ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                          ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                          ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                          ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                          ;
+; WIDTH_B                            ; 26                   ; Untyped                                                          ;
+; WIDTHAD_B                          ; 4                    ; Untyped                                                          ;
+; NUMWORDS_B                         ; 16                   ; Untyped                                                          ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                          ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                          ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                          ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                          ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                          ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                          ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                          ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                          ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                          ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                          ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                          ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                                          ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                          ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                          ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                          ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                          ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                          ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                                          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                          ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                          ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                          ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                                          ;
+; CBXI_PARAMETER                     ; altsyncram_jnd1      ; Untyped                                                          ;
++------------------------------------+----------------------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                         ;
++-------------------------------------------+------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                        ;
++-------------------------------------------+------------------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                            ;
+; Entity Instance                           ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                    ;
+;     -- WIDTH_A                            ; 3                                                                            ;
+;     -- NUMWORDS_A                         ; 64                                                                           ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                 ;
+;     -- WIDTH_B                            ; 3                                                                            ;
+;     -- NUMWORDS_B                         ; 64                                                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                                     ;
+; Entity Instance                           ; IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0  ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                    ;
+;     -- WIDTH_A                            ; 26                                                                           ;
+;     -- NUMWORDS_A                         ; 16                                                                           ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                 ;
+;     -- WIDTH_B                            ; 26                                                                           ;
+;     -- NUMWORDS_B                         ; 16                                                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                    ;
++-------------------------------------------+------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Arbitrary:Arbitrator"                                                                           ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; exe_data_mem_ack ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MEM_PHASE:MEM_faza"                                                                       ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; irout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; aluout_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pcnew_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; load_out   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "EXE_PHASE:EXE_faza|ALU:ALU_comp|SUB:SUBb" ;
++------+-------+----------+--------------------------------------------+
+; Port ; Type  ; Severity ; Details                                    ;
++------+-------+----------+--------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                               ;
++------+-------+----------+--------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "EXE_PHASE:EXE_faza|ALU:ALU_comp|ADD:ADDd" ;
++------+-------+----------+--------------------------------------------+
+; Port ; Type  ; Severity ; Details                                    ;
++------+-------+----------+--------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                               ;
++------+-------+----------+--------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "EXE_PHASE:EXE_faza"                                                                                            ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                                                  ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; dest_pcexe ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed May 28 04:18:05 2014
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Projekat -c Projekat
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file kes/instruction.vhd
+    Info (12022): Found design unit 1: instruction_cache_mem-behavior
+    Info (12023): Found entity 1: instruction_cache_mem
+Info (12021): Found 2 design units, including 1 entities, in source file kes/data.vhd
+    Info (12022): Found design unit 1: Data_Mem-behavior
+    Info (12023): Found entity 1: Data_Mem
+Info (12021): Found 2 design units, including 1 entities, in source file kes/arbitrary.vhd
+    Info (12022): Found design unit 1: Arbitrary-behavior
+    Info (12023): Found entity 1: Arbitrary
+Info (12021): Found 2 design units, including 1 entities, in source file if_phase/if_phase.vhd
+    Info (12022): Found design unit 1: IF_PHASE-structural
+    Info (12023): Found entity 1: IF_PHASE
+Info (12021): Found 2 design units, including 1 entities, in source file if_phase/if_pc.vhd
+    Info (12022): Found design unit 1: IF_PC-Behavioral
+    Info (12023): Found entity 1: IF_PC
+Info (12021): Found 2 design units, including 1 entities, in source file if_phase/if_id.vhd
+    Info (12022): Found design unit 1: IF_ID-behavioral
+    Info (12023): Found entity 1: IF_ID
+Info (12021): Found 2 design units, including 1 entities, in source file id_phase/id_regfile.vhd
+    Info (12022): Found design unit 1: Reg_file-behavioral
+    Info (12023): Found entity 1: Reg_file
+Info (12021): Found 2 design units, including 1 entities, in source file id_phase/id_phase.vhd
+    Info (12022): Found design unit 1: ID_PHASE-structural
+    Info (12023): Found entity 1: ID_PHASE
+Info (12021): Found 2 design units, including 1 entities, in source file id_phase/id_opdecode.vhd
+    Info (12022): Found design unit 1: ID_OPDecode-behavioral
+    Info (12023): Found entity 1: ID_OPDecode
+Info (12021): Found 2 design units, including 1 entities, in source file id_phase/id_exe.vhd
+    Info (12022): Found design unit 1: ID_EXE-behavioral
+    Info (12023): Found entity 1: ID_EXE
+Info (12021): Found 2 design units, including 1 entities, in source file exe_phase/sub.vhd
+    Info (12022): Found design unit 1: SUB-behavioral
+    Info (12023): Found entity 1: SUB
+Info (12021): Found 2 design units, including 1 entities, in source file exe_phase/loadstore.vhd
+    Info (12022): Found design unit 1: LoadStore-behavioral
+    Info (12023): Found entity 1: LoadStore
+Info (12021): Found 2 design units, including 1 entities, in source file exe_phase/immedopextension.vhd
+    Info (12022): Found design unit 1: ImmedOp-arch
+    Info (12023): Found entity 1: ImmedOp
+Info (12021): Found 2 design units, including 1 entities, in source file exe_phase/exe_phase.vhd
+    Info (12022): Found design unit 1: EXE_PHASE-structural
+    Info (12023): Found entity 1: EXE_PHASE
+Info (12021): Found 2 design units, including 1 entities, in source file exe_phase/csr.vhd
+    Info (12022): Found design unit 1: CSR-Behavioral
+    Info (12023): Found entity 1: CSR
+Info (12021): Found 2 design units, including 1 entities, in source file exe_phase/bblinstr.vhd
+    Info (12022): Found design unit 1: BBL-behavioral
+    Info (12023): Found entity 1: BBL
+Info (12021): Found 2 design units, including 1 entities, in source file exe_phase/alu.vhd
+    Info (12022): Found design unit 1: ALU-behavioral
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 2 design units, including 1 entities, in source file exe_phase/add.vhd
+    Info (12022): Found design unit 1: ADD-behavioral
+    Info (12023): Found entity 1: ADD
+Info (12021): Found 1 design units, including 0 entities, in source file cpu/package - instr_type.vhd
+    Info (12022): Found design unit 1: Pack
+Info (12021): Found 2 design units, including 1 entities, in source file cpu/cpu.vhd
+    Info (12022): Found design unit 1: Pipeline-pipe
+    Info (12023): Found entity 1: Pipeline
+Info (12021): Found 2 design units, including 1 entities, in source file exe_phase/exe_mem.vhd
+    Info (12022): Found design unit 1: EXE_MEM-behavioral
+    Info (12023): Found entity 1: EXE_MEM
+Info (12021): Found 2 design units, including 1 entities, in source file mem_phase/mem_phase.vhd
+    Info (12022): Found design unit 1: MEM_PHASE-structural
+    Info (12023): Found entity 1: MEM_PHASE
+Info (12021): Found 2 design units, including 1 entities, in source file mem_phase/mem_wb.vhd
+    Info (12022): Found design unit 1: MEM_WB-behavioral
+    Info (12023): Found entity 1: MEM_WB
+Info (12127): Elaborating entity "Pipeline" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(167): used implicit default value for signal "req_exe" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(167): object "ack_exe" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(182): object "IRout_MEM" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(183): object "ALUout_out_MEM" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(184): object "PCnew_out_MEM" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(186): object "Load_out_MEM" assigned a value but never read
+Info (12128): Elaborating entity "IF_PHASE" for hierarchy "IF_PHASE:IF_faza"
+Info (12128): Elaborating entity "IF_PC" for hierarchy "IF_PHASE:IF_faza|IF_PC:IF_PC_reg"
+Warning (10492): VHDL Process Statement warning at IF_PC.vhd(35): signal "brnc_cond_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at IF_PC.vhd(35): signal "BBL_flag_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at IF_PC.vhd(37): signal "JMPaddr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at IF_PC.vhd(43): signal "INIT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "instruction_cache_mem" for hierarchy "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem"
+Info (12128): Elaborating entity "IF_ID" for hierarchy "IF_PHASE:IF_faza|IF_ID:IF_ID_stanglica"
+Info (12128): Elaborating entity "ID_PHASE" for hierarchy "ID_PHASE:ID_faza"
+Info (12128): Elaborating entity "Reg_file" for hierarchy "ID_PHASE:ID_faza|Reg_file:RegFile"
+Warning (10492): VHDL Process Statement warning at ID_RegFile.vhd(97): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ID_RegFile.vhd(97): signal "rd_addr_Rn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ID_RegFile.vhd(98): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ID_RegFile.vhd(98): signal "rd_addr_Rd" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ID_RegFile.vhd(99): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ID_RegFile.vhd(99): signal "rd_addr_Rm" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ID_RegFile.vhd(100): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ID_RegFile.vhd(100): signal "rd_addr_Rs" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at ID_RegFile.vhd(47): inferring latch(es) for signal or variable "rd_addr_Rn", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ID_RegFile.vhd(47): inferring latch(es) for signal or variable "rd_addr_Rd", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ID_RegFile.vhd(47): inferring latch(es) for signal or variable "rd_addr_Rm", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ID_RegFile.vhd(47): inferring latch(es) for signal or variable "rd_addr_Rs", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "rd_addr_Rs[0]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rs[1]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rs[2]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rs[3]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rm[0]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rm[1]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rm[2]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rm[3]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rd[0]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rd[1]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rd[2]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rd[3]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rn[0]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rn[1]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rn[2]" at ID_RegFile.vhd(47)
+Info (10041): Inferred latch for "rd_addr_Rn[3]" at ID_RegFile.vhd(47)
+Info (12128): Elaborating entity "ID_OPDecode" for hierarchy "ID_PHASE:ID_faza|ID_OPDecode:OPDecode"
+Warning (10631): VHDL Process Statement warning at ID_OPDecode.vhd(25): inferring latch(es) for signal or variable "instruction", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "instruction.S" at ID_OPDecode.vhd(25)
+Info (10041): Inferred latch for "instruction.BBL" at ID_OPDecode.vhd(25)
+Info (10041): Inferred latch for "instruction.LS" at ID_OPDecode.vhd(25)
+Info (10041): Inferred latch for "instruction.DP_I" at ID_OPDecode.vhd(25)
+Info (10041): Inferred latch for "instruction.DP_R" at ID_OPDecode.vhd(25)
+Info (12128): Elaborating entity "ID_EXE" for hierarchy "ID_PHASE:ID_faza|ID_EXE:ID_EXE_stanglica"
+Info (12128): Elaborating entity "EXE_PHASE" for hierarchy "EXE_PHASE:EXE_faza"
+Info (12128): Elaborating entity "ALU" for hierarchy "EXE_PHASE:EXE_faza|ALU:ALU_comp"
+Warning (10492): VHDL Process Statement warning at ALU.vhd(135): signal "DP_flag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(139): signal "DP_R_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(143): signal "f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(145): signal "f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(149): signal "f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(151): signal "f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(155): signal "f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(157): signal "f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(163): signal "DP_I_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(176): signal "a" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(176): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(201): signal "a" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(203): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(212): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(217): signal "b" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "b", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "a", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "dest_PC", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "cout", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "vout", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "swapAtoB", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "addrAtoB", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "swapBtoA", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "addrBtoA", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "zout", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "nout", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(127): inferring latch(es) for signal or variable "output", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "output[0]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[1]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[2]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[3]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[4]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[5]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[6]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[7]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[8]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[9]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[10]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[11]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[12]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[13]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[14]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[15]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[16]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[17]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[18]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[19]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[20]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[21]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[22]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[23]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[24]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[25]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[26]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[27]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[28]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[29]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[30]" at ALU.vhd(127)
+Info (10041): Inferred latch for "output[31]" at ALU.vhd(127)
+Info (10041): Inferred latch for "nout" at ALU.vhd(127)
+Info (10041): Inferred latch for "zout" at ALU.vhd(127)
+Info (10041): Inferred latch for "addrBtoA[0]" at ALU.vhd(127)
+Info (10041): Inferred latch for "addrBtoA[1]" at ALU.vhd(127)
+Info (10041): Inferred latch for "addrBtoA[2]" at ALU.vhd(127)
+Info (10041): Inferred latch for "addrBtoA[3]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[0]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[1]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[2]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[3]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[4]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[5]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[6]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[7]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[8]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[9]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[10]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[11]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[12]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[13]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[14]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[15]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[16]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[17]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[18]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[19]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[20]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[21]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[22]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[23]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[24]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[25]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[26]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[27]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[28]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[29]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[30]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapBtoA[31]" at ALU.vhd(127)
+Info (10041): Inferred latch for "addrAtoB[0]" at ALU.vhd(127)
+Info (10041): Inferred latch for "addrAtoB[1]" at ALU.vhd(127)
+Info (10041): Inferred latch for "addrAtoB[2]" at ALU.vhd(127)
+Info (10041): Inferred latch for "addrAtoB[3]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[0]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[1]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[2]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[3]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[4]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[5]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[6]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[7]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[8]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[9]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[10]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[11]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[12]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[13]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[14]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[15]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[16]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[17]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[18]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[19]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[20]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[21]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[22]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[23]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[24]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[25]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[26]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[27]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[28]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[29]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[30]" at ALU.vhd(127)
+Info (10041): Inferred latch for "swapAtoB[31]" at ALU.vhd(127)
+Info (10041): Inferred latch for "vout" at ALU.vhd(127)
+Info (10041): Inferred latch for "cout" at ALU.vhd(127)
+Info (10041): Inferred latch for "dest_PC" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[0]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[1]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[2]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[3]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[4]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[5]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[6]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[7]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[8]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[9]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[10]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[11]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[12]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[13]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[14]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[15]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[16]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[17]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[18]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[19]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[20]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[21]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[22]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[23]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[24]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[25]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[26]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[27]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[28]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[29]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[30]" at ALU.vhd(127)
+Info (10041): Inferred latch for "a[31]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[0]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[1]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[2]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[3]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[4]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[5]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[6]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[7]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[8]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[9]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[10]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[11]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[12]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[13]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[14]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[15]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[16]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[17]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[18]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[19]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[20]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[21]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[22]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[23]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[24]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[25]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[26]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[27]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[28]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[29]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[30]" at ALU.vhd(127)
+Info (10041): Inferred latch for "b[31]" at ALU.vhd(127)
+Info (12128): Elaborating entity "ADD" for hierarchy "EXE_PHASE:EXE_faza|ALU:ALU_comp|ADD:ADDd"
+Warning (10492): VHDL Process Statement warning at ADD.vhd(32): signal "i_sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ADD.vhd(33): signal "i_sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ADD.vhd(34): signal "i_sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ADD.vhd(35): signal "i_sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "SUB" for hierarchy "EXE_PHASE:EXE_faza|ALU:ALU_comp|SUB:SUBb"
+Warning (10492): VHDL Process Statement warning at SUB.vhd(32): signal "i_sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SUB.vhd(33): signal "i_sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SUB.vhd(34): signal "i_sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SUB.vhd(35): signal "i_sum" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "CSR" for hierarchy "EXE_PHASE:EXE_faza|CSR:CSR_comp"
+Warning (10492): VHDL Process Statement warning at CSR.vhd(33): signal "input" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CSR.vhd(41): signal "CSRreg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "ImmedOp" for hierarchy "EXE_PHASE:EXE_faza|ImmedOp:ImmedOp_comp"
+Info (10041): Inferred latch for "Imm[0]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[1]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[2]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[3]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[4]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[5]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[6]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[7]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[8]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[9]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[10]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[11]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[12]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[13]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[14]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[15]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[16]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[17]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[18]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[19]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[20]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[21]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[22]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[23]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[24]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[25]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[26]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[27]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[28]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[29]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[30]" at ImmedOpExtension.vhd(22)
+Info (10041): Inferred latch for "Imm[31]" at ImmedOpExtension.vhd(22)
+Info (12128): Elaborating entity "BBL" for hierarchy "EXE_PHASE:EXE_faza|BBL:BBL_comp"
+Warning (10492): VHDL Process Statement warning at BBLinstr.vhd(36): signal "IRin" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at BBLinstr.vhd(36): signal "CSR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at BBLinstr.vhd(37): signal "IRin" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at BBLinstr.vhd(37): signal "CSR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at BBLinstr.vhd(38): signal "IRin" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at BBLinstr.vhd(38): signal "CSR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at BBLinstr.vhd(39): signal "IRin" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at BBLinstr.vhd(41): signal "BBL_flag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at BBLinstr.vhd(42): signal "IRin" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at BBLinstr.vhd(44): signal "PCnew" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at BBLinstr.vhd(29): inferring latch(es) for signal or variable "ADDRout", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "ADDRout[0]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[1]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[2]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[3]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[4]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[5]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[6]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[7]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[8]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[9]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[10]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[11]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[12]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[13]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[14]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[15]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[16]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[17]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[18]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[19]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[20]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[21]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[22]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[23]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[24]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[25]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[26]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[27]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[28]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[29]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[30]" at BBLinstr.vhd(29)
+Info (10041): Inferred latch for "ADDRout[31]" at BBLinstr.vhd(29)
+Info (12128): Elaborating entity "EXE_MEM" for hierarchy "EXE_PHASE:EXE_faza|EXE_MEM:EXE_MEM_stanglica"
+Warning (10541): VHDL Signal Declaration warning at EXE_MEM.vhd(24): used implicit default value for signal "ALUout_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "MEM_PHASE" for hierarchy "MEM_PHASE:MEM_faza"
+Warning (10541): VHDL Signal Declaration warning at MEM_PHASE.vhd(52): used implicit default value for signal "Load_out_in_signal" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at MEM_PHASE.vhd(54): object "Data_signal" assigned a value but never read
+Info (12128): Elaborating entity "MEM_WB" for hierarchy "MEM_PHASE:MEM_faza|MEM_WB:MEM_WB_stanglica"
+Info (12128): Elaborating entity "Arbitrary" for hierarchy "Arbitrary:Arbitrator"
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|data_out[29]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|data_out[30]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|data_out[31]" feeding internal logic into a wire
+Warning (276020): Inferred RAM node "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|tag_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 26
+        Info (286033): Parameter WIDTHAD_A set to 4
+        Info (286033): Parameter NUMWORDS_A set to 16
+        Info (286033): Parameter WIDTH_B set to 26
+        Info (286033): Parameter WIDTHAD_B set to 4
+        Info (286033): Parameter NUMWORDS_B set to 16
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|data_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 3
+        Info (286033): Parameter WIDTHAD_A set to 6
+        Info (286033): Parameter NUMWORDS_A set to 64
+        Info (286033): Parameter WIDTH_B set to 3
+        Info (286033): Parameter WIDTHAD_B set to 6
+        Info (286033): Parameter NUMWORDS_B set to 64
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0"
+Info (12133): Instantiated megafunction "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "3"
+    Info (12134): Parameter "WIDTHAD_A" = "6"
+    Info (12134): Parameter "NUMWORDS_A" = "64"
+    Info (12134): Parameter "WIDTH_B" = "3"
+    Info (12134): Parameter "WIDTHAD_B" = "6"
+    Info (12134): Parameter "NUMWORDS_B" = "64"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_iag1.tdf
+    Info (12023): Found entity 1: altsyncram_iag1
+Info (12130): Elaborated megafunction instantiation "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0"
+Info (12133): Instantiated megafunction "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:tag_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "26"
+    Info (12134): Parameter "WIDTHAD_A" = "4"
+    Info (12134): Parameter "NUMWORDS_A" = "16"
+    Info (12134): Parameter "WIDTH_B" = "26"
+    Info (12134): Parameter "WIDTHAD_B" = "4"
+    Info (12134): Parameter "NUMWORDS_B" = "16"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_jnd1.tdf
+    Info (12023): Found entity 1: altsyncram_jnd1
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0|altsyncram_iag1:auto_generated|ram_block1a0"
+        Warning (14320): Synthesized away node "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0|altsyncram_iag1:auto_generated|ram_block1a1"
+        Warning (14320): Synthesized away node "IF_PHASE:IF_faza|instruction_cache_mem:instruction_mem|altsyncram:data_rtl_0|altsyncram_iag1:auto_generated|ram_block1a2"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "PCinit[0]"
+    Warning (15610): No output dependent on input pin "PCinit[1]"
+    Warning (15610): No output dependent on input pin "wrEnable"
+Info (21057): Implemented 346 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 36 input pins
+    Info (21059): Implemented 34 output pins
+    Info (21060): Implemented 32 bidirectional pins
+    Info (21061): Implemented 218 logic cells
+    Info (21064): Implemented 26 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 90 warnings
+    Info: Peak virtual memory: 520 megabytes
+    Info: Processing ended: Wed May 28 04:18:17 2014
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:06
+
+
